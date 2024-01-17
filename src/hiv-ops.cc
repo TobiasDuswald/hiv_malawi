@@ -146,12 +146,15 @@ void GetOlderOperation::ProcessAgent(Agent* agent) {
   const auto& transition_proba =
       sparam->hiv_transition_matrix[person->state_][year_population_category];
   for (size_t i = 0; i < transition_proba.size(); i++) {
-    if (random->Uniform() < transition_proba[i]) {
+    if (random->Uniform() < transition_proba[i] && person->newly_infected==false) {
       person->state_ = i;
       break;
     }
   }
-
+  if(person->newly_infected==true){
+    std::cout << "W";
+    person->newly_infected=false;
+  }
   // Possibly die - if not, just get older
   bool stay_alive{true};
 
