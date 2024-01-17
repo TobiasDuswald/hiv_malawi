@@ -84,7 +84,7 @@ inline int Simulate(int argc, const char** argv) {
   OperationRegistry::GetInstance()->AddOperationImpl(
       "GetOlder", OpComputeTarget::kCpu, new GetOlderOperation());
   auto* get_older = NewOperation("GetOlder");
-  scheduler->ScheduleOp(get_older, OpType::kPreSchedule);
+  scheduler->ScheduleOp(get_older, OpType::kPostSchedule);
 
   // Run simulation for <number_of_iterations> timesteps
   {
