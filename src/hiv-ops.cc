@@ -152,7 +152,7 @@ void GetOlderOperation::ProcessAgent(Agent* agent) {
     }
   }
   if(person->newly_infected==true){
-    std::cout << "W";
+    //std::cout << "W";
     person->newly_infected=false;
   }
   // Possibly die - if not, just get older

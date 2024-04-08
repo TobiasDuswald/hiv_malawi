@@ -85,6 +85,20 @@ void DefineAndRegisterCollectors() {
   };
   ts->AddCollector("acute_agents", new Counter<double>(acute), get_year);
 
+  // Infected for location1 
+  auto acute1 = [](Agent* a) {
+    auto* person = bdm_static_cast<Person*>(a);
+    return person->IsAcute() && person-> Isloc1();
+  };
+  ts->AddCollector("acute_agents loc1", new Counter<double>(acute1), get_year);
+
+// Infected for location2 
+  auto acute2 = [](Agent* a) {
+    auto* person = bdm_static_cast<Person*>(a);
+    return person->IsAcute() && person-> Isloc2();
+  };
+  ts->AddCollector("acute_agents loc2", new Counter<double>(acute2), get_year);
+
   // AM: Define how to count the infected acute male individuals
   auto acute_male_agents = [](Agent* a) {
     auto* person = bdm_static_cast<Person*>(a);
