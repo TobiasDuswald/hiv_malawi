@@ -82,7 +82,9 @@ class Person : public Agent {
   // for regular partnership are then indexed, select the compound category of
   // their partner, and are mapped to females corresponding to the selected
   // category
-  bool seek_regular_partnership_;
+  bool seek_regular_partnership_ = true;
+  // Prevent newly infected to move on to next state the same year of infection
+  bool newly_infected = false;
   // Number of casual partners
   int no_casual_partners_;
   // Tag to track if this person will be removed at the end of the iteration
@@ -194,6 +196,10 @@ class Person : public Agent {
   bool IsMale() { return sex_ == Sex::kMale; }
   // Returns True if the agent is a female
   bool IsFemale() { return sex_ == Sex::kFemale; }
+ // Returns True if the agent is in location 1
+  bool Isloc1() { return location_ == 1; }
+// Returns True if the agent is in location 2
+  bool Isloc2() { return location_ == 8; }
 
   // AM - Get Age Category from 0 to no_age_categories. 5-years interval
   // categories from min_age.
