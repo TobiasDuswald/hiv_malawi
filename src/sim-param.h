@@ -36,7 +36,7 @@ class SimParam : public ParamGroup {
   int start_year = 1975;  // 1975;//1960;
 
   // The number of iterations that BioDynaMo simulates. (#iterations = #years)
-  uint64_t number_of_iterations = 45;  // 20; //45;//5;// 60;// (1960-2020)
+  uint64_t number_of_iterations = 55;  // 20; //45;//5;// 60;// (1960-2020)
 
   // Number of agents that are present at the first iteration of the simulation
   uint64_t initial_population_size = 53020;  // 3600000;//5302000;
@@ -102,8 +102,11 @@ class SimParam : public ParamGroup {
   //    {0.0, 0.0}, {0.0, 0.0}, {0.0, 0.0}};/*{{40.0,80.0},
   //                                                   {30.0,60.0},
   //                                                    {20.0,40.0}};*/
-      {{24, 24}, {24, 24}, {24, 24}, {24, 24}, {24, 24}, {24, 24}, {24, 24},
-       {24, 24}, {24, 24}, {24, 24}, {24, 24}, {24, 24}, {24, 24}};
+      {{22, 88}, {22*0.9375, 88*0.9375}, {22*0.8750, 88*0.8750},
+       {22*0.8125, 88*0.8125}, {22*0.750, 88*0.750}, {22*0.6875, 88*0.6875},
+        {22*0.6250, 88*0.6250}, {22*0.5625, 88*0.5625}, {22*0.500, 88*0.500},
+         {22*0.4375, 88*0.4375}, {22*0.3750, 88*0.3750}, {22*0.3125, 88*0.3125},
+          {22*0.25, 88*0.25}};
   //{{20.0, 70.0}, {15.0, 53.0}, {10.0, 35.0}};
   //{{2.0, 8.0}, {1.0, 4.0}, {1.0, 4.0}};
 
@@ -138,7 +141,9 @@ class SimParam : public ParamGroup {
 
   // Mean number of sexual acts with regular partner per year.
   // const float no_regular_acts_mean = 50.0;  // 150;
-  const std::vector<float> no_regular_acts_mean{48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48};
+  const std::vector<float> no_regular_acts_mean{50,
+   50*0.9375, 50*0.8750, 50*0.8125, 50*0.750, 50*0.6875,
+    50*0.6250, 50*0.5625, 50*0.500, 50*0.4375, 50*0.3750, 50*0.3125, 50*0.25};
                                             //50, 47, 44, 41, 38, 34, 31,
                                              //   28, 25, 22, 19, 16, 12};
   //{90, 84, 79, 73, 68, 62, 56, 51, 45, 39, 34, 28, 22};
@@ -282,11 +287,11 @@ class SimParam : public ParamGroup {
   // x2 (6-10). Usually, these vectors are given in probabilities p1, p2, p3, ..
   // Here: x1 = p1, x2 = p1+p2, x3 = p1+p2+p3, ..
   const std::vector<float> male_age_distribution{
-      0.156, 0.312, 0.468, 0.544, 0.62, 0.696, 0.772,  0.848, 0.924,
-      1, 1, 1, 1, 1, 1, 1, 1};
+      0.156, 0.312, 0.468, 0.541, 0.614, 0.687, 0.76,  0.833, 0.906,
+      0.979, 0.982, 0.985, 0.988, 0.991, 0.994, 0.997, 1};
   const std::vector<float> female_age_distribution{
-      0.156, 0.312, 0.468, 0.544, 0.62, 0.696, 0.772,  0.848, 0.924,
-      1, 1, 1, 1, 1, 1, 1, 1};
+      0.156, 0.312, 0.468, 0.540, 0.612, 0.684, 0.756,  0.828, 0.9,
+      0.972, 0.976, 0.98, 0.984, 0.988, 0.992, 0.996, 1};
 
   // Location distribution for population initialization, same logic as for age
   // distribution.
